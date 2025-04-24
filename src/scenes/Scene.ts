@@ -8,6 +8,6 @@ export default class Scene extends Container{
 
     public update(delta: number): void
     {
-        
+        console.log(delta);
     }
 }
