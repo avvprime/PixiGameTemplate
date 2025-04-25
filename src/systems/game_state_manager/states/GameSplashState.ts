@@ -1,16 +1,18 @@
 import GameState from "../GameState";
-import { EventBus } from "../../event_bus/EventBus";
+import { GameStateManager, GameStates } from "../GameStateManager";
 
 export default class GameSplashState extends GameState{
-    constructor()
+    constructor(manager: GameStateManager)
     {
-        super();
+        super(manager);
     }
 
     public enter(): void
     {
         console.log("Game Splash State Entered");
-        EventBus.instance.emit('game-splash-state-entered');
+        //EventBus.instance.emit(GameStateEvents.SPLASH_STATE_ENTERED);
+        this._manager.changeState(GameStates.INTRO);
+
     }
 
     public exit(): void

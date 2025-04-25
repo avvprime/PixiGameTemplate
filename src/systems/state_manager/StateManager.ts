@@ -1,6 +1,6 @@
 import State from "./State";
 
-export default abstract class StateManager<T extends State>{
+export default abstract class StateManager<T extends State<T>>{
 
     protected _state!: T;
     protected _stateMap!: Map<number, T>;

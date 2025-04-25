@@ -1,16 +1,21 @@
 import { Application } from 'pixi.js'   
 import { GameStateManager, GameStates} from './systems/game_state_manager/GameStateManager';
+import { UIManager } from './systems/ui_manager/UIManager';
+import { SceneManager } from './systems/scene_manager/SceneManager';
 
-import { EventBus } from './systems/event_bus/EventBus';
 
 export default class Game{
 
     private _app: Application = new Application();
     private _gameStateManager: GameStateManager = new GameStateManager();
+    private _uiManager: UIManager = new UIManager();
+    private _sceneManager: SceneManager = new SceneManager(this._app.stage);
 
     constructor()
     {
-        EventBus.instance.on('game-splash-state-entered', this.test);
+        // Just to remove warnings
+        void this._uiManager;
+        void this._sceneManager;
     }
 
     public async init(): Promise<void>
@@ -25,9 +30,4 @@ export default class Game{
         this._gameStateManager.init(GameStates.SPLASH);
     }
 
-    public test(): void
-    {
-        console.log("test function works");
-        
-    }
 }

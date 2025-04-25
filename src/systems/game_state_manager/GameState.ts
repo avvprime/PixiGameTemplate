@@ -1,9 +1,10 @@
 import State from "../state_manager/State";
+import { GameStateManager } from "./GameStateManager";
 
-export default class GameState extends State{
-    constructor()
+export default class GameState extends State<GameState>{
+    constructor(manager: GameStateManager)
     {
-        super();
+        super(manager);
     }
 
     public enter(): void
