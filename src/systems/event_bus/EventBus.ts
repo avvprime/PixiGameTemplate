@@ -20,17 +20,17 @@ export class EventBus{
         return this._instance;
     }
 
-    on(event: number, callback: (...args: any[]) => void): void
+    on(event: string, callback: (...args: any[]) => void): void
     {
         this._eventEmitter.on(event, callback);
     }
 
-    off(event: number, callback: (...args: any[]) => void): void
+    off(event: string, callback: (...args: any[]) => void): void
     {
         this._eventEmitter.off(event, callback);
     }
 
-    emit(event: number, ...args: any[]): void
+    emit(event: string, ...args: any[]): void
     {
         this._eventEmitter.emit(event, args);
     }
